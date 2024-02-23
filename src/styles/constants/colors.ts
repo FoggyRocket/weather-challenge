@@ -1,0 +1,26 @@
+const colors = {
+  transparent: 'transparent',
+  black: '#000000',
+  white: '#FFFFFF',
+  primary: '#002672',
+  secondary: '#0A1A54',
+  tertiary: '#23BCCB',
+  success: '#00B759',
+  error: '#FF4F00',
+  warning: '#CDA100',
+  info: '#0080C9',
+  neutro: '#F5F7F8',
+  gray200: '#F8F9F9',
+  gray300: '#E8E8E9',
+  gray400: '#BCBFC0',
+  gray500: '#82878A',
+  gray600: '#595D5F',
+  gray700: '#393B3C',
+  gray800: '#333333',
+  accent1: '#002672',
+  accent2: '#FF4F00',
+  subText: '#AEB1B2',
+  neutroText: '#333333',
+};
+
+export default colors;
