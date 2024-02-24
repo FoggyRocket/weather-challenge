@@ -99,6 +99,9 @@ export default StyleSheet.create({
   maxW0: {
     maxWidth: 0,
   },
+  maxW4_5_1:{
+    maxWidth: '85%',
+  },
   maxWFull: {
     maxWidth: '100%',
   },
