@@ -1,13 +1,35 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Pressable, Text, TouchableOpacity, View} from 'react-native';
 import {TextInputCustomProps} from './type';
 import {constants, t} from '@styles';
 import InputBase from './InputBase';
 import {Icon} from '@components';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Keyboard} from 'react-native';
 
 function InputSearch({style, onClean, ...props}: TextInputCustomProps) {
   const [showButton, setShowButton] = useState<boolean>(false);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setShowButton(true);
+      },
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        if (!props.value) {
+          setShowButton(false);
+        }
+      },
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
   const onCancel = () => {
     onClean?.();
     Keyboard.dismiss();
@@ -25,10 +47,14 @@ function InputSearch({style, onClean, ...props}: TextInputCustomProps) {
           t.bgWhite,
           t.flexRow,
           t.itemsCenter,
-          style
+          style,
         ]}>
         <View>
-          <Icon color={constants.colors.gray400} iconName="SearchNormal" height={20} />
+          <Icon
+            color={constants.colors.gray400}
+            iconName="SearchNormal"
+            height={20}
+          />
         </View>
         <InputBase
           style={[t.w4_5_1, t.maxW4_5_1]}
@@ -37,9 +63,9 @@ function InputSearch({style, onClean, ...props}: TextInputCustomProps) {
           onBlur={() => setShowButton(false)}
           {...props}
         />
-        {onClean && (
+        {props.value && (
           <View>
-            <TouchableOpacity
+            <Pressable
               onPress={onClean}
               style={[
                 t.roundedFull,
@@ -54,13 +80,13 @@ function InputSearch({style, onClean, ...props}: TextInputCustomProps) {
                 height={10}
                 color={constants.colors.white}
               />
-            </TouchableOpacity>
+            </Pressable>
           </View>
         )}
       </View>
       {showButton && (
         <TouchableOpacity onPress={onCancel} style={[t.justifyCenter, t.mx2]}>
-          <Text>Cancelar</Text>
+          <Text style={[t.textGray500]}>Cancelar</Text>
         </TouchableOpacity>
       )}
     </View>
