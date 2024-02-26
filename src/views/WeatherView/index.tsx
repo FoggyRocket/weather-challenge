@@ -10,6 +10,7 @@ import {FlatList, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {t} from '@styles';
 import {BottomSheetV1, Input, TemplateWeatherInfo} from '@components';
 import location from './location.json';
+import { useKeyboard } from '@hooks';
 
 function SearchBar() {
   const [wordSearch, setWordSearch] = useState<string>('');
@@ -27,13 +28,14 @@ function SearchBar() {
 }
 
 function WeatherView(){
+  const {Keyboard} = useKeyboard()
   const [changeBg, setChangeBg] = useState<boolean>(false);
 
   return (
     <View style={{flex: 1}}>
       <SafeAreaView style={[t.flex1]}>
         <FlatList
-          keyboardShouldPersistTaps='never'
+          keyboardShouldPersistTaps='handled'
           onScroll={e =>
             setChangeBg(e.nativeEvent.contentOffset.y > 1 ? true : false)
           }
@@ -43,7 +45,10 @@ function WeatherView(){
           data={location}
           keyExtractor={item => item.id.toString()}
           renderItem={({item}) => (
-            <Pressable style={[t.px4, t.py2]} onPress={() => BottomSheetV1.show({content:<TemplateWeatherInfo/>})}>
+            <Pressable style={[t.px4, t.py2]} onPress={() => {
+              Keyboard.dismiss()
+              BottomSheetV1.show({content:<TemplateWeatherInfo/>})
+              }}>
               <Text>{item.display}</Text>
             </Pressable>
           )}

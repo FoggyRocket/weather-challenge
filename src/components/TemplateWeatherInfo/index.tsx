@@ -28,7 +28,7 @@ function TemplateWeatherInfo() {
           />
         </View>
         <Text style={[t.textWeight500, t.textXs, t.textGray300]}>
-          {dataWeather.current.temp}
+          {dataWeather.current.temp}°
         </Text>
         <Text style={[t.textWeight500, t.textSm, t.textGray300]}>
           {dataWeather.current.weather[0].description}
@@ -40,10 +40,9 @@ function TemplateWeatherInfo() {
         <View
           style={[
             t.rounded3xl,
-            t.bgInfo,
             t.px4,
             t.py4,
-            {backgroundColor: 'rgba(52, 52, 52, 0.2)'},
+            {backgroundColor: 'rgba(52, 52, 52, 0.1)'},
           ]}>
           {/* title */}
           <View
@@ -90,11 +89,13 @@ function TemplateWeatherInfo() {
                 />
               </View>
 
-              <View style={[t.flex1]}>
-                <Text style={[t.textGray300]}>{item.temp.min}° Min</Text>
+              <View style={[t.flex1,t.flexRow,t.itemsEnd]}>
+                <Text style={[t.textGray300]}>{item.temp.min}° </Text>
+                <Text style={[t.textGray300,t.textWeight500,t.textXxs]}>Min</Text>
               </View>
-              <View style={[t.flex1]}>
-                <Text style={[t.textGray300]}>{item.temp.max}° Max</Text>
+              <View style={[t.flex1,t.flexRow,t.itemsEnd]}>
+                <Text style={[t.textGray300]}>{item.temp.max}° </Text>
+                <Text style={[t.textGray300,t.textWeight500,t.textXxs]}>Max</Text>
               </View>
             </View>
           ))}

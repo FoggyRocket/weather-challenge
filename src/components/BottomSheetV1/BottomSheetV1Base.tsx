@@ -78,7 +78,7 @@ const BottomSheetV1 = () => {
       handleHeight={animatedHandleHeight}
       contentHeight={animatedContentHeight}
       backdropComponent={renderBackdrop}
-
+      enablePanDownToClose
       >
       <BottomSheetView onLayout={handleContentLayout}>
         {content}

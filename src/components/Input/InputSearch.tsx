@@ -4,32 +4,19 @@ import {constants, t} from '@styles';
 import InputBase from './InputBase';
 import {Icon} from '@components';
 import {useEffect, useState} from 'react';
-import {Keyboard} from 'react-native';
+import { useKeyboard } from '@hooks';
 
 function InputSearch({style, onClean, ...props}: TextInputCustomProps) {
+  const {openKeyboard,Keyboard} = useKeyboard()
   const [showButton, setShowButton] = useState<boolean>(false);
 
-  useEffect(() => {
-    const keyboardDidShowListener = Keyboard.addListener(
-      'keyboardDidShow',
-      () => {
-        setShowButton(true);
-      },
-    );
-    const keyboardDidHideListener = Keyboard.addListener(
-      'keyboardDidHide',
-      () => {
-        if (!props.value) {
-          setShowButton(false);
-        }
-      },
-    );
-
-    return () => {
-      keyboardDidHideListener.remove();
-      keyboardDidShowListener.remove();
-    };
-  }, []);
+  useEffect(()=>{
+    if(openKeyboard){
+      setShowButton(true);
+    }else{
+      setShowButton(false);
+    }
+  },[openKeyboard])
   const onCancel = () => {
     onClean?.();
     Keyboard.dismiss();

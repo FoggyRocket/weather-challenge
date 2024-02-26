@@ -7,7 +7,8 @@
       "@views/*": ["./src/views/*"],
       "@styles": ["./src/styles/index"],
       "@utils/*": ["./src/utils/*"],
-      "@api/*": ["./src/api/*"]
+      "@api/*": ["./src/api/*"],
+      "@hooks": ["./src/hooks/index"]
     }
   }
 }

@@ -5,32 +5,23 @@
  * @format
  */
 import 'react-native-gesture-handler';
-import React, {useCallback, useMemo, useRef, useState} from 'react';
-import type {PropsWithChildren} from 'react';
+import React, {useEffect} from 'react';
 import {
-  Button,
-  Image,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  useColorScheme,
   View,
 } from 'react-native';
-import {constants, t} from '@styles';
-import {BottomSheetV1, Icon, TemplateWeatherInfo} from '@components';
+import {t} from '@styles';
+import {BottomSheetV1} from '@components';
 
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import BottomSheet, {
-  BottomSheetBackdrop,
-  BottomSheetBackdropProps,
-  BottomSheetView,
-  useBottomSheet,
-  useBottomSheetDynamicSnapPoints,
-} from '@gorhom/bottom-sheet';
 import WeatherView from '@views/WeatherView';
 
 const SubContiner = () => {
 
+  useEffect(()=>{
+    setTimeout(()=>{
+      BottomSheetV1.dismiss()
+    },1000)
+  },[])
 
   return (
     <View style={[t.flex1]}>
