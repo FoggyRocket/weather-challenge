@@ -14,29 +14,23 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import WeatherView from '@views/WeatherView';
 import {LocationsProvider} from '@context/apiResponseContext';
 
-const SubContiner = () => {
+function App(): React.JSX.Element {
   useEffect(() => {
     Loading.show();
     setTimeout(() => {
       Loading.hide();
       BottomSheetV1.dismiss();
-    }, 1000);
+    }, 1200);
   }, []);
-
-  return (
-    <View style={[t.flex1]}>
-      <WeatherView />
-      <BottomSheetV1.Component />
-      <Loading.Component />
-    </View>
-  );
-};
-
-function App(): React.JSX.Element {
+  
   return (
     <GestureHandlerRootView style={[t.flex1]}>
       <LocationsProvider>
-        <SubContiner />
+        <View style={[t.flex1]}>
+          <WeatherView />
+          <BottomSheetV1.Component />
+          <Loading.Component />
+        </View>
       </LocationsProvider>
     </GestureHandlerRootView>
   );
