@@ -7,7 +7,7 @@ interface EmptyMessageProps{
 }
 function EmptyMessage({value,...props}:EmptyMessageProps) {
   return (
-    <View style={[t.flex1,t.bgWarning,t.justifyCenter,t.itemsCenter,]}>
+    <View style={[t.flex1,t.justifyCenter,t.itemsCenter,t.h300]}>
       <View>
         <Icon
           color={constants.colors.gray400}
