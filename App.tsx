@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 import {t} from '@styles';
-import {BottomSheetV1} from '@components';
+import {BottomSheetV1, Loading} from '@components';
 
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import WeatherView from '@views/WeatherView';
@@ -18,7 +18,9 @@ import WeatherView from '@views/WeatherView';
 const SubContiner = () => {
 
   useEffect(()=>{
+    Loading.show()
     setTimeout(()=>{
+      Loading.hide()
       BottomSheetV1.dismiss()
     },1000)
   },[])
@@ -27,6 +29,7 @@ const SubContiner = () => {
     <View style={[t.flex1]}>
       <WeatherView/>
       <BottomSheetV1.Component/>
+      <Loading.Component/>
     </View>
   );
 };
