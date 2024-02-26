@@ -4,6 +4,39 @@ import { scaleFont } from '@utils/scaleSizes';
 
 
 export default StyleSheet.create({
+  textWeight100:{
+    fontWeight:'100',
+  },
+  textWeight200:{
+    fontWeight:'200',
+  },
+  textWeight300:{
+    fontWeight:'300',
+  },
+  textWeight400:{
+    fontWeight:'400',
+  },
+  textWeight500:{
+    fontWeight:'500',
+  },
+  textWeight600:{
+    fontWeight:'600',
+  },
+  textWeight700:{
+    fontWeight:'700',
+  },
+  textWeight800:{
+    fontWeight:'800',
+  },
+  textWeight900:{
+    fontWeight:'900',
+  },
+  textWeightBold:{
+    fontWeight:'bold',
+  },
+  textWeight:{
+    fontWeight:'normal',
+  },
   // Font Size
   textXxs: {
     fontSize: scaleFont(fontSizes.xxs),

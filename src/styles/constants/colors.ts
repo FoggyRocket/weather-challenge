@@ -21,6 +21,7 @@ const colors = {
   accent2: '#FF4F00',
   subText: '#AEB1B2',
   neutroText: '#333333',
+  bgRGBA:'rgba(0, 0, 0, 1)',
 };
 
 export default colors;

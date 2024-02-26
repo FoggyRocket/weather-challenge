@@ -63,5 +63,8 @@ export default StyleSheet.create({
   },
   bgAccent2: {
     backgroundColor: colors.accent2,
-  }
+  },
+  bgRgba: {
+    backgroundColor: colors.bgRGBA,
+  },
 });
