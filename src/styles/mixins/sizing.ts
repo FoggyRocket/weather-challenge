@@ -192,6 +192,9 @@ export default StyleSheet.create({
   maxH0: {
     maxHeight: 0,
   },
+  hMax3_5: {
+    maxHeight: '60%',
+  },
   maxHFull: {
     maxHeight: '100%',
   },

@@ -7,6 +7,8 @@ import {useEffect, useState} from 'react';
 import {fetchWeather} from '@api/endpoints';
 import Loading from '../Loading';
 import sizing from 'src/styles/mixins/sizing';
+import BottomSheet from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheet/BottomSheet';
+import BottomSheetV1 from '../BottomSheetV1';
 
 interface TemplateWeatherInfoProps {
   [key: string]: string | number;
@@ -22,12 +24,17 @@ function TemplateWeatherInfo({
   const [isload, setLoad] = useState<boolean>(true);
   useEffect(() => {
     setLoad(true);
-    fetchWeather({lat, long}).then(data => {
-      setWeatherData(data);
+    fetchWeather({lat, long}).then((data) => {
+      if(!data){
+        BottomSheetV1.dismiss()
+      }else{
+        setWeatherData(data);
 
-      setTimeout(() => {
-        setLoad(false);
-      }, 1500);
+        setTimeout(() => {
+          setLoad(false);
+        }, 1500);
+      }
+   
     });
   }, [display]);
 
@@ -99,7 +106,7 @@ function TemplateWeatherInfo({
                 t.g1,
               ]}>
               <View style={[t.flex1]}>
-                <Text style={[t.textGray300]}>
+                <Text style={[t.textGray300,t.textXs]}>
                   {index === 0 ? 'Today' : convertDate(item.dt)}
                 </Text>
               </View>
@@ -114,13 +121,13 @@ function TemplateWeatherInfo({
               </View>
 
               <View style={[t.flex1, t.flexRow, t.itemsEnd]}>
-                <Text style={[t.textGray300]}>{item.temp.min}° </Text>
+                <Text style={[t.textGray300,t.textXs]}>{item.temp.min}° </Text>
                 <Text style={[t.textGray300, t.textWeight500, t.textXxs]}>
                   Min
                 </Text>
               </View>
               <View style={[t.flex1, t.flexRow, t.itemsEnd]}>
-                <Text style={[t.textGray300]}>{item.temp.max}° </Text>
+                <Text style={[t.textGray300,t.textXs]}>{item.temp.max}° </Text>
                 <Text style={[t.textGray300, t.textWeight500, t.textXxs]}>
                   Max
                 </Text>

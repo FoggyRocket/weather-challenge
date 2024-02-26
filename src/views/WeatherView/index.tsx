@@ -6,7 +6,7 @@
  */
 
 import React, {useContext, useState} from 'react';
-import {FlatList, Pressable, SafeAreaView, Text, View} from 'react-native';
+import {FlatList, Pressable, Text, View, SafeAreaView} from 'react-native';
 import {t} from '@styles';
 import {
   BottomSheetV1,
@@ -27,6 +27,8 @@ function WeatherView() {
     <View style={t.flex1}>
       <SafeAreaView style={[t.flex1]}>
         <FlatList
+          automaticallyAdjustKeyboardInsets
+          keyboardDismissMode="interactive"
           ListEmptyComponent={
             isSearching ? (
               <EmptyMessage value={locationName} />
@@ -42,7 +44,7 @@ function WeatherView() {
                     t.textXxl,
                     t.textGray400,
                   ]}>
-                  Inicia tu busqueda
+                  Search for a city or airport
                 </Text>
               </View>
             )

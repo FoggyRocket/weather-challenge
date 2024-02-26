@@ -73,7 +73,7 @@ function InputSearch({style, onClean, ...props}: TextInputCustomProps) {
       </View>
       {showButton && (
         <TouchableOpacity onPress={onCancel} style={[t.justifyCenter, t.mx2]}>
-          <Text style={[t.textGray500]}>Cancelar</Text>
+          <Text style={[t.textGray500]}>Cancel</Text>
         </TouchableOpacity>
       )}
     </View>

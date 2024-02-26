@@ -30,6 +30,8 @@ function SearchBar() {
           setWordSearch('')
           cleanLocationsState()
         }}
+        autoCorrect={false}
+        autoComplete='off'
         variant="search"
         placeholder="Search for a city or airport"
       />
