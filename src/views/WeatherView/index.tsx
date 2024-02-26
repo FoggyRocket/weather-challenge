@@ -8,24 +8,10 @@
 import React, {useState} from 'react';
 import {FlatList, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {t} from '@styles';
-import {BottomSheetV1, Input, TemplateWeatherInfo} from '@components';
+import {BottomSheetV1,SearchBar, TemplateWeatherInfo} from '@components';
 import location from './location.json';
 import { useKeyboard } from '@hooks';
 
-function SearchBar() {
-  const [wordSearch, setWordSearch] = useState<string>('');
-  return (
-    <View style={[t.h16, t.justifyCenter, t.px2]}>
-      <Input
-        value={wordSearch}
-        onChangeText={setWordSearch}
-        onClean={() => setWordSearch('')}
-        variant="search"
-        placeholder="Search for a city or airport"
-      />
-    </View>
-  );
-}
 
 function WeatherView(){
   const {Keyboard} = useKeyboard()
