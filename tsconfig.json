@@ -8,7 +8,9 @@
       "@styles": ["./src/styles/index"],
       "@utils/*": ["./src/utils/*"],
       "@api/*": ["./src/api/*"],
-      "@hooks": ["./src/hooks/index"]
+      "@hooks": ["./src/hooks/index"],
+      "@context/*": ["./src/context/*"],
+      "@env":[".env"]
     }
   }
 }

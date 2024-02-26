@@ -3,35 +3,59 @@ import {Image, Text, View} from 'react-native';
 import Icon from '../Icon';
 import {convertDate} from '@utils/convertDate';
 import {dataWeather} from './mockData';
+import {useEffect, useState} from 'react';
+import {fetchWeather} from '@api/endpoints';
+import Loading from '../Loading';
+import sizing from 'src/styles/mixins/sizing';
 
-function TemplateWeatherInfo() {
-  return (
+interface TemplateWeatherInfoProps {
+  [key: string]: string | number;
+}
+
+function TemplateWeatherInfo({
+  lat,
+  long,
+  display,
+  ...props
+}: TemplateWeatherInfoProps) {
+  const [weatherData, setWeatherData] = useState<Object>({});
+  const [isload, setLoad] = useState<boolean>(true);
+  useEffect(() => {
+    setLoad(true);
+    fetchWeather({lat, long}).then(data => {
+      setWeatherData(data);
+
+      setTimeout(() => {
+        setLoad(false);
+      }, 1500);
+    });
+  }, [display]);
+
+  return isload ? (
+    <View style={[t.h300]}>
+      <Loading.Screen height={400} />
+    </View>
+  ) : (
     <View style={[t.py4]}>
       {/* Time current Day */}
       <View style={[t.justifyCenter, t.wFull, t.itemsCenter]}>
-        <Text style={[t.textWeight700, t.textXxl, t.textGray300]}>Pachuca</Text>
-        <View
-          style={[
-            t.h14,
-            t.w14,
-            t.bgTertiary,
-            t.roundedFull,
-            t.itemsCenter,
-            t.justifyCenter,
-          ]}>
+        <Text style={[t.textWeight700, t.textXxl, t.textGray300]}>
+          {display}
+        </Text>
+        <View style={[t.h14, t.w14, t.itemsCenter, t.justifyCenter]}>
           <Image
             source={{
-              uri: `https://openweathermap.org/img/wn/${dataWeather.current.weather[0].icon}.png`,
+              uri: `https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}.png`,
             }}
             style={[t.wFull, t.hFull]}
             resizeMode="contain"
           />
         </View>
         <Text style={[t.textWeight500, t.textXs, t.textGray300]}>
-          {dataWeather.current.temp}°
+          {weatherData.current.temp}°
         </Text>
         <Text style={[t.textWeight500, t.textSm, t.textGray300]}>
-          {dataWeather.current.weather[0].description}
+          {weatherData.current.weather[0].description}
         </Text>
       </View>
 
@@ -60,7 +84,7 @@ function TemplateWeatherInfo() {
             <Text style={[t.ml2, t.textGray300]}>7-DAY FORECAST</Text>
           </View>
           {/* data */}
-          {dataWeather.daily.map((item, index, arr) => (
+          {weatherData.daily.map((item, index, arr) => (
             <View
               key={index}
               style={[
@@ -89,13 +113,17 @@ function TemplateWeatherInfo() {
                 />
               </View>
 
-              <View style={[t.flex1,t.flexRow,t.itemsEnd]}>
+              <View style={[t.flex1, t.flexRow, t.itemsEnd]}>
                 <Text style={[t.textGray300]}>{item.temp.min}° </Text>
-                <Text style={[t.textGray300,t.textWeight500,t.textXxs]}>Min</Text>
+                <Text style={[t.textGray300, t.textWeight500, t.textXxs]}>
+                  Min
+                </Text>
               </View>
-              <View style={[t.flex1,t.flexRow,t.itemsEnd]}>
+              <View style={[t.flex1, t.flexRow, t.itemsEnd]}>
                 <Text style={[t.textGray300]}>{item.temp.max}° </Text>
-                <Text style={[t.textGray300,t.textWeight500,t.textXxs]}>Max</Text>
+                <Text style={[t.textGray300, t.textWeight500, t.textXxs]}>
+                  Max
+                </Text>
               </View>
             </View>
           ))}

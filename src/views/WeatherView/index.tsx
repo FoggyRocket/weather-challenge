@@ -5,37 +5,67 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {FlatList, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {t} from '@styles';
-import {BottomSheetV1,SearchBar, TemplateWeatherInfo} from '@components';
-import location from './location.json';
-import { useKeyboard } from '@hooks';
+import {
+  BottomSheetV1,
+  EmptyMessage,
+  Loading,
+  SearchBar,
+  TemplateWeatherInfo,
+} from '@components';
+import {useKeyboard} from '@hooks';
+import {LocationsContext} from '@context/apiResponseContext';
 
-
-function WeatherView(){
-  const {Keyboard} = useKeyboard()
+function WeatherView() {
+  const {locations, isSearching, locationName} = useContext(LocationsContext);
+  const {Keyboard} = useKeyboard();
   const [changeBg, setChangeBg] = useState<boolean>(false);
 
   return (
-    <View style={{flex: 1}}>
+    <View style={t.flex1}>
       <SafeAreaView style={[t.flex1]}>
         <FlatList
-          keyboardShouldPersistTaps='handled'
+          ListEmptyComponent={
+            isSearching ? (
+              <EmptyMessage value={locationName} />
+            ) : (
+              <View
+                style={[t.h100, t.relative, t.justifyCenter, t.itemsCenter]}>
+                <Loading.Screen />
+                <Text
+                  style={[
+                    t.absolute,
+                    t.bottom0,
+                    t.textWeight700,
+                    t.textXxl,
+                    t.textGray400,
+                  ]}>
+                  Inicia tu busqueda
+                </Text>
+              </View>
+            )
+          }
+          keyboardShouldPersistTaps="handled"
           onScroll={e =>
             setChangeBg(e.nativeEvent.contentOffset.y > 1 ? true : false)
           }
           stickyHeaderIndices={[0]}
           ListHeaderComponent={<SearchBar />}
           ListHeaderComponentStyle={[changeBg && t.bgPrimary]}
-          data={location}
+          data={locations}
           keyExtractor={item => item.id.toString()}
           renderItem={({item}) => (
-            <Pressable style={[t.px4, t.py2]} onPress={() => {
-              Keyboard.dismiss()
-              BottomSheetV1.show({content:<TemplateWeatherInfo/>})
+            <Pressable
+              style={[t.px4, t.py2]}
+              onPress={() => {
+                Keyboard.dismiss();
+                BottomSheetV1.show({content: <TemplateWeatherInfo {...item} />});
               }}>
-              <Text>{item.display}</Text>
+              <Text>
+                {item.display}, {item.state}
+              </Text>
             </Pressable>
           )}
         />
