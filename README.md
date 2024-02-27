@@ -23,10 +23,10 @@
 ## About The Project
 <div style="display:flex; justify-content:center">
 <img src="https://res.cloudinary.com/dhgfid3ej/image/upload/v1708973321/CodeChallenge/e431qru45gmk5zhrmjhg.gif"
-width="100px" heigth="600px">
+width="200" heigth="600">
 
 <img src="https://res.cloudinary.com/dhgfid3ej/image/upload/v1708973323/CodeChallenge/dlozuvedw4h7cmymkdal.gif"
-width="100px" heigth="600px">
+width="200" heigth="600">
 </div>
 
 
@@ -55,12 +55,11 @@ To run the application in the IOS simulator, you need to change the Bundle ident
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/github_username/codeCallenge.git
    ```
-3. Install NPM o YARN packages 
+2. Install NPM o YARN packages 
     ```bash
     # using npm
    $ npm install
@@ -68,13 +67,13 @@ To run the application in the IOS simulator, you need to change the Bundle ident
    # Or using Yarn
    $ yarn
    ```
-4. ***IOS only** your terminal
+3. ***IOS only** your terminal
     ```sh
     $ cd ios/
     $ pod install
     $ cd ..
     ```
-5. Enter your URLs and API_KEY in `.env`
+4. Enter your URLs and API_KEY in `.env`
     ```sh
     # root project in terminal
     $ touch .env
@@ -94,7 +93,7 @@ To run the application in the IOS simulator, you need to change the Bundle ident
     # OR using Yarn
     yarn start
     ```
-2. Star your Aoolication
+2. Star your Application
 - For Android
 
     ```bash
@@ -116,4 +115,4 @@ To run the application in the IOS simulator, you need to change the Bundle ident
     ```
 <!-- USAGE EXAMPLES -->
 ## Usage
-You can write in the input any city, it will search it and a list of the weather for the following 7 days in that place will be shown 
+You can write in the input any city, and it will search it and a list of the weather for the following 7 days in that place will be shown 
