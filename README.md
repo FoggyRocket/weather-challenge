@@ -12,7 +12,7 @@
   <p align="center">
     Weather App 
     <br>
-    <a href="https://drive.google.com/file/d/1o2LNIztl65MzM9RU38zz5FrO36e9ypCn/view?usp=sharing">Download apk</a>
+    <a href="https://drive.google.com/file/d/1TqUkDrpct7N_qnjIKbbjQ20jUD8xtBGc/view?usp=drive_link">Download apk</a>
   </p>
 </div>
 
