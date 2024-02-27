@@ -2,12 +2,9 @@ import {constants, t} from '@styles';
 import {Image, Text, View} from 'react-native';
 import Icon from '../Icon';
 import {convertDate} from '@utils/convertDate';
-import {dataWeather} from './mockData';
 import {useEffect, useState} from 'react';
 import {fetchWeather} from '@api/endpoints';
 import Loading from '../Loading';
-import sizing from 'src/styles/mixins/sizing';
-import BottomSheet from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheet/BottomSheet';
 import BottomSheetV1 from '../BottomSheetV1';
 
 interface TemplateWeatherInfoProps {
@@ -29,12 +26,10 @@ function TemplateWeatherInfo({
         BottomSheetV1.dismiss()
       }else{
         setWeatherData(data);
-
         setTimeout(() => {
           setLoad(false);
         }, 1500);
       }
-   
     });
   }, [display]);
 

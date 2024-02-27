@@ -26,7 +26,7 @@ function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView style={[t.flex1]}>
       <LocationsProvider>
-        <View style={[t.flex1]}>
+        <View style={[t.flex1,t.bgWhite]}>
           <WeatherView />
           <BottomSheetV1.Component />
           <Loading.Component />

@@ -34,12 +34,12 @@ function WeatherView() {
               <EmptyMessage value={locationName} />
             ) : (
               <View
-                style={[t.h100, t.relative, t.justifyCenter, t.itemsCenter]}>
+                style={[t.h300, t.relative, t.justifyCenter, t.itemsCenter]}>
                 <Loading.Screen />
                 <Text
                   style={[
                     t.absolute,
-                    t.bottom0,
+                    t.bottom60,
                     t.textWeight700,
                     t.textXxl,
                     t.textGray400,
@@ -65,9 +65,9 @@ function WeatherView() {
                 Keyboard.dismiss();
                 BottomSheetV1.show({content: <TemplateWeatherInfo {...item} />});
               }}>
-              <Text>
+             <Text>
                 {item.display}, {item.state}
-              </Text>
+             </Text>
             </Pressable>
           )}
         />

@@ -1,79 +1,119 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="https://cdn-icons-png.flaticon.com/512/1779/1779940.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Step 1: Start the Metro Server
+<h3 align="center">Code Challenge</h3>
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+  <p align="center">
+    Weather App 
+    <br>
+    <a href="https://drive.google.com/file/d/1o2LNIztl65MzM9RU38zz5FrO36e9ypCn/view?usp=sharing">Download apk</a>
+  </p>
+</div>
 
-To start Metro, run the following command from the _root_ of your React Native project:
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
-```
 
-## Step 2: Start your Application
+<!-- ABOUT THE PROJECT -->
+## About The Project
+<div style="display:flex; justify-content:center">
+<img src="https://res.cloudinary.com/dhgfid3ej/image/upload/v1708973321/CodeChallenge/e431qru45gmk5zhrmjhg.gif"
+width="100px" heigth="600px">
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+<img src="https://res.cloudinary.com/dhgfid3ej/image/upload/v1708973323/CodeChallenge/dlozuvedw4h7cmymkdal.gif"
+width="100px" heigth="600px">
+</div>
 
-### For Android
 
-```bash
-# using npm
-npm run android
 
-# OR using Yarn
-yarn android
-```
+### dependencies
+* lottie-react-native 
+* axios
+* @gorhum/BottomSheet
+* react-native-svg
 
-### For iOS
 
-```bash
-# using npm
-npm run ios
 
-# OR using Yarn
-yarn ios
-```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+<!-- GETTING STARTED -->
+## Getting Started
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+To run the application locally, the next steps must be followed:
 
-## Step 3: Modifying your App
+### Prerequisites
 
-Now that you have successfully run the app, let's modify it.
+**Only iOS**:
+To run the application in the IOS simulator, you need to change the Bundle identifier in  the general tab in xcode.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
+### Installation
 
-### Now what?
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/codeCallenge.git
+   ```
+3. Install NPM o YARN packages 
+    ```bash
+    # using npm
+   $ npm install
+   
+   # Or using Yarn
+   $ yarn
+   ```
+4. ***IOS only** your terminal
+    ```sh
+    $ cd ios/
+    $ pod install
+    $ cd ..
+    ```
+5. Enter your URLs and API_KEY in `.env`
+    ```sh
+    # root project in terminal
+    $ touch .env
+    
+    # into .env 
+    API_LOCATION = https://search.reservamos.mx/api/v2
+    API_WEATHER = https://api.openweathermap.org/data/2.5
+    API_KEY = ****
+    ```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+### Getting Started
+1. Star the metro
+    ```bash
+    # using npm
+    npm start
+    
+    # OR using Yarn
+    yarn start
+    ```
+2. Star your Aoolication
+- For Android
 
-# Troubleshooting
+    ```bash
+    # using npm
+    npm run android
+    
+    # OR using Yarn
+    yarn android
+    ```
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+- For iOS
 
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+    ```bash
+    # using npm
+    npm run ios
+    
+    # OR using Yarn
+    yarn ios
+    ```
+<!-- USAGE EXAMPLES -->
+## Usage
+You can write in the input any city, it will search it and a list of the weather for the following 7 days in that place will be shown 

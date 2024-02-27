@@ -7,7 +7,7 @@ function InputBase({textStyle, ...props}: TextInputCustomProps) {
     <TextInput
       autoCapitalize="none"
       placeholderTextColor="gray"
-      style={[t.textSm, t.textNeutro, textStyle]}
+      style={[t.textSm,t.textGray300, t.textNeutro, textStyle]}
       {...props}
     />
   );
