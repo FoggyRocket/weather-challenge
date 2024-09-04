@@ -27,7 +27,7 @@ const BottomSheetV1 = () => {
     setIndex(1)
     bottomSheetRef.current?.expand();
   };
-  const points = useMemo(() => ['CONTENT_HEIGHT'], []);
+  const points = useMemo(() => ["CONTENT_HEIGHT"], []);
   const {
     animatedHandleHeight,
     animatedSnapPoints,
@@ -83,6 +83,7 @@ const BottomSheetV1 = () => {
       <BottomSheetView onLayout={handleContentLayout}>
         {content}
       </BottomSheetView>
+      <View/>
     </BottomSheet>
   );
 };
